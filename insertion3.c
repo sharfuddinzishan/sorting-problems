@@ -31,15 +31,18 @@ void swap(int *a, int *b)
 }
 void insertionSort(int arr[], int num)
 {
-    int i, hole;
-    for (i = 1; i < n; i++)
+    for (int i = 1; i < n; i++)
     {
         int value = arr[i];
-        hole = i;
-        for (; hole > 0; hole--)
+        int hole = i;
+
+        while (hole > 0)
         {
             if (arr[hole - 1] > value)
+            {
                 arr[hole] = arr[hole - 1];
+                hole--;
+            }
             else
                 break;
         }
