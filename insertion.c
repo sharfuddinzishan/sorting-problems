@@ -2,6 +2,9 @@
 
 int data[50];
 int n;
+// Just check how many times outer and inner loop executed
+int outerLoop = 0;
+int innerLoop = 0;
 
 void show()
 {
@@ -33,6 +36,7 @@ void insertionSort(int arr[], int num)
 {
     for (int i = 1; i < n; i++)
     {
+        ++outerLoop;
         // Hole h created after storing ith value in a temp
         int value = arr[i];
         int hole = i;
@@ -77,6 +81,7 @@ void insertionSort(int arr[], int num)
          */
         while (hole > 0 && arr[hole - 1] > value)
         {
+            ++innerLoop;
             arr[hole] = arr[hole - 1];
             hole--;
         }
@@ -89,4 +94,5 @@ int main()
     getInput();
     insertionSort(data, n);
     show();
+    printf("\nouter %d and inner %d", outerLoop, innerLoop);
 }
